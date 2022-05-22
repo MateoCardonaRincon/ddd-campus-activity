@@ -4,20 +4,22 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Duration implements ValueObject<Double> {
+public class Description implements ValueObject<String> {
 
-    private final Double value;
+    private final String value;
 
-    public Duration(Double value) {
+    public Description(String value) {
         Objects.requireNonNull(value);
-        if (value < 0){
-            throw new IllegalArgumentException("The duration must be a value greater than 0");
+
+        if(value.length() > 100){
+            throw new IllegalArgumentException("The description must not have more than 50 characters");
         }
+
         this.value = value;
     }
 
     @Override
-    public Double value() {
+    public String value() {
         return value;
     }
 
@@ -25,8 +27,8 @@ public class Duration implements ValueObject<Double> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Duration duration = (Duration) o;
-        return Objects.equals(value, duration.value);
+        Description that = (Description) o;
+        return Objects.equals(value, that.value);
     }
 
     @Override
