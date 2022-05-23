@@ -35,16 +35,6 @@ public class Tasting extends AggregateEvent<TastingId> {
     }
 
     // Behaviors
-    public void changeDateOfTasting(DateOfTasting dateOfTasting) {
-        Objects.requireNonNull(dateOfTasting);
-        appendChange(new DateOfTastingChanged(dateOfTasting)).apply();
-    }
-
-    public void changePreparationMethod(PreparationMethod preparationMethod) {
-        Objects.requireNonNull(preparationMethod);
-        appendChange(new PreparationMethodChanged(preparationMethod)).apply();
-    }
-
     public void addCoffee(CoffeeId coffeeId, GrindingType grindingType, CoffeeProfile coffeeProfile) {
         Objects.requireNonNull(coffeeId);
         Objects.requireNonNull(grindingType);
@@ -57,6 +47,16 @@ public class Tasting extends AggregateEvent<TastingId> {
         Objects.requireNonNull(rating);
         Objects.requireNonNull(comment);
         appendChange(new ReviewAdded(reviewId, rating, comment)).apply();
+    }
+
+    public void changeDateOfTasting(DateOfTasting dateOfTasting) {
+        Objects.requireNonNull(dateOfTasting);
+        appendChange(new DateOfTastingChanged(dateOfTasting)).apply();
+    }
+
+    public void changePreparationMethod(PreparationMethod preparationMethod) {
+        Objects.requireNonNull(preparationMethod);
+        appendChange(new PreparationMethodChanged(preparationMethod)).apply();
     }
 
     public void changeCoffeeGrindingType(GrindingType grindingType){
@@ -74,7 +74,7 @@ public class Tasting extends AggregateEvent<TastingId> {
         appendChange(new ReviewRatingChanged(rating)).apply();
     }
 
-    public void changeRevieeComment(Comment comment){
+    public void changeReviewComment(Comment comment){
         Objects.requireNonNull(comment);
         appendChange(new ReviewCommentChanged(comment)).apply();
     }
