@@ -1,4 +1,17 @@
 package com.sofkaU.campusDDD.domain.reservation.events;
 
-public class MainClientAgeChanged {
+import co.com.sofka.domain.generic.DomainEvent;
+import com.sofkaU.campusDDD.domain.shared.values.Age;
+
+public class MainClientAgeChanged extends DomainEvent {
+    private final Age age;
+
+    public MainClientAgeChanged(Age age) {
+        super("campusddd.reservation.mainclientagechanged");
+        this.age = age;
+    }
+
+    public Age getAge() {
+        return age;
+    }
 }

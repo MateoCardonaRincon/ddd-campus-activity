@@ -12,8 +12,6 @@ public class Route extends Entity<RouteId> {
     private Description description;
     private Duration estimatedDuration;
 
-
-
     public Route(RouteId entityId, Description description, Duration estimatedDuration) {
         super(entityId);
         this.description = description;

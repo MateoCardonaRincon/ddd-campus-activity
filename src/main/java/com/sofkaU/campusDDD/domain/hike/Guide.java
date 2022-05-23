@@ -33,15 +33,15 @@ public class Guide extends Entity<GuideId> {
         this.license = Objects.requireNonNull(license);
     }
 
-    public Name getName() {
+    public Name name() {
         return name;
     }
 
-    public Age getAge() {
+    public Age age() {
         return age;
     }
 
-    public License getLicense() {
+    public License license() {
         return license;
     }
 }

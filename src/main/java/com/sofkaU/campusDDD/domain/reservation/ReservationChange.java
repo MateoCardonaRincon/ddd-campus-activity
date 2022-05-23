@@ -1,4 +1,9 @@
 package com.sofkaU.campusDDD.domain.reservation;
 
-public class ReservationChange {
+import co.com.sofka.domain.generic.EventChange;
+
+public class ReservationChange extends EventChange {
+
+    public ReservationChange(Reservation reservation) {
+    }
 }
