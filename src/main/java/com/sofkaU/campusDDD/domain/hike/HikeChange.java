@@ -11,6 +11,10 @@ public class HikeChange extends EventChange {
             hike.dateOfHike = event.getDateOfHike();
         });
 
+        apply((ReservationAssociated event) -> {
+            hike.reservationId = event.getReservationId();
+        });
+
         apply((DateOfHikeChanged event) -> {
             hike.dateOfHike = event.getDateOfHike();
         });

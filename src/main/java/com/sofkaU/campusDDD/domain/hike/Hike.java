@@ -36,6 +36,11 @@ public class Hike extends AggregateEvent<HikeId> {
     }
 
     // Behaviors
+    public void associateReservation(ReservationId reservationId){
+        Objects.requireNonNull(reservationId);
+        appendChange(new ReservationAssociated(reservationId)).apply();
+    }
+
     public void changeDateOfHike(DateOfHike dateOfHike) {
         Objects.requireNonNull(dateOfHike);
         appendChange(new DateOfHikeChanged(dateOfHike)).apply();
