@@ -59,14 +59,16 @@ public class Reservation extends AggregateEvent<ReservationId> {
         appendChange(new ReservationDateChanged(reservationDate)).apply();
     }
 
-    public void changeTouristName(Name name){
+    public void changeTouristName(TouristId touristId, Name name){
+        Objects.requireNonNull(touristId);
         Objects.requireNonNull(name);
-        appendChange(new TouristNameChanged(name)).apply();
+        appendChange(new TouristNameChanged(touristId, name)).apply();
     }
 
-    public void changeTouristAge(Age age){
+    public void changeTouristAge(TouristId touristId, Age age){
+        Objects.requireNonNull(touristId);
         Objects.requireNonNull(age);
-        appendChange(new TouristAgeChanged(age)).apply();
+        appendChange(new TouristAgeChanged(touristId, age)).apply();
     }
 
     public void changeMainClientName(Name name){

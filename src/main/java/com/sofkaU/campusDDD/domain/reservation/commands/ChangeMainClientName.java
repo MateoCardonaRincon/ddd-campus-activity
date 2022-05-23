@@ -1,4 +1,24 @@
 package com.sofkaU.campusDDD.domain.reservation.commands;
 
-public class ChangeMainClientName {
+import co.com.sofka.domain.generic.Command;
+import com.sofkaU.campusDDD.domain.shared.values.Name;
+import com.sofkaU.campusDDD.domain.shared.values.ReservationId;
+
+public class ChangeMainClientName extends Command {
+
+    private final ReservationId reservationId;
+    private final Name name;
+
+    public ChangeMainClientName(ReservationId reservationId, Name name) {
+        this.reservationId = reservationId;
+        this.name = name;
+    }
+
+    public ReservationId getReservationId() {
+        return reservationId;
+    }
+
+    public Name getName() {
+        return name;
+    }
 }
